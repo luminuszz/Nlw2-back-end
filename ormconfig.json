@@ -3,7 +3,7 @@
   "database": "db.sqlite",
   "logging": false,
   "entities": ["./dist/modules/**/entities/*.js"],
-  "migrations": ["./dist/shared/database/typeorm/migrations/*.js"],
+  "migrations": ["./src/shared/database/typeorm/migrations/*.js"],
   "cli": {
     "migrationsDir": "./src/shared/database/typeorm/migrations/"
   }

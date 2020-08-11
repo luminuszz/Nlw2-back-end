@@ -4,27 +4,26 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
 
-import { Classes } from '@modules/classes/entities/classes.entity';
+import { User } from '@modules/users/entities/users.entity';
 
-@Entity('users')
-export class User {
+@Entity('classes')
+export class Classes {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
   @Column('varchar')
-  name: string;
+  subject: string;
 
-  @Column('varchar')
-  avatar: string;
+  @Column('decimal')
+  cost: number;
 
-  @Column('varchar')
-  whatsapp: string;
-
-  @Column('varchar')
-  bio: string;
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 
   @CreateDateColumn()
   created_at: Date;
