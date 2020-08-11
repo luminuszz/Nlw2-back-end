@@ -10,10 +10,13 @@ import {
 
 import { User } from './users.entity';
 
-@Entity('classes')
+@Entity('connections')
 export class Connections {
   @PrimaryGeneratedColumn('increment')
   id: number;
+
+  @Column()
+  user_id: number;
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })

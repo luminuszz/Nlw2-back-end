@@ -12,6 +12,7 @@ import { RequestFilters } from './dtos/IRequestFilters';
 
 import { getMinutes } from 'date-fns';
 import { ClassSchedule } from './entities/classSchudule.entity';
+import { convertToMinutes } from 'shared/utils/cnvertTominutes';
 @Injectable()
 export class ClassesService {
   constructor(
@@ -63,8 +64,8 @@ export class ClassesService {
         const { from, to, week_day } = item;
         return {
           week_day,
-          from: 30,
-          to: 80,
+          from: convertToMinutes(from),
+          to: convertToMinutes(to),
           classes: classes,
         };
       });
