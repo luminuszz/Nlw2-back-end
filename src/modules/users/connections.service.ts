@@ -12,7 +12,7 @@ export class ConnectionsService {
   ) {}
 
   public async index() {
-    const contConnections = await this.connectionsRepository.findAndCount();
+    const contConnections = await this.connectionsRepository.count();
     return contConnections;
   }
 

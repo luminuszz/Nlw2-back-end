@@ -63,7 +63,7 @@ export class ClassesService {
       const formatedSchedule = schedule.map(item => {
         const { from, to, week_day } = item;
         return {
-          week_day,
+          week_day: Number(week_day),
           from: convertToMinutes(from),
           to: convertToMinutes(to),
           classes: classes,
